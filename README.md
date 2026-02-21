@@ -227,13 +227,27 @@ Based on Solidus Labs 2025 data and practical analysis of existing Solana securi
 
 ## Business Model
 
-RugIntel is the **first subnet designed to convert existing DeFi security budgets** — fiat dollars already allocated for wallet protection and compliance — directly into **usage-based, TAO-denominated revenue** at scale.
+RugIntel operates on a multi-tier sustainable economy. We convert DeFi security budgets into TAO-denominated utility.
 
-| Segment             | Model                            | Cost            |
-| ------------------- | -------------------------------- | --------------- |
-| 🏦 Wallet Providers | Pay per alert (not per contract) | Usage-based TAO |
-| 👤 Retail Users     | Free access                      | $0              |
-| 🏢 Compliance       | Enterprise API                   | Custom pricing  |
+### 💼 Market Segments
+
+- **B2C (Retail):** Free basic alerts + $99/mo "Pro" tier for active traders.
+- **B2B (Institutions):** $499/mo for Hedge Funds and Market Makers.
+- **Provider API:** Usage-based sub-cent pricing for Wallet Providers (Phantom, Jupiter).
+- **Network Treasury:** 20% of emissions recycled for bug bounties and grants.
+
+> 📄 **Deep Dive:** [Full Business Model & Monetization Strategy](docs/bussiness-model/bussinessmodels.md)
+
+---
+
+## 📚 Documentation
+
+Detailed guides and specifications for RugIntel participants:
+
+- **[Main Tutorial (ID)](<howtouserugintel(id).md>)** — Step-by-step guide to building and running nodes.
+- **[System Requirements](docs/requirements.md)** — Hardware, API keys, and TAO budget specs for Miners/Validators.
+- **[Intelligence Layers](layer/)** — Comprehensive logic for each of the 12 intelligence layers.
+- **[Business Model](docs/bussiness-model/bussinessmodels.md)** — Economic strategy and revenue streams.
 
 > **Free for retail users. Sustainable for the network. Essential for the ecosystem.**
 
@@ -243,9 +257,13 @@ RugIntel is the **first subnet designed to convert existing DeFi security budget
 
 ### Prerequisites
 
-- Python 3.9+
-- [Bittensor SDK](https://github.com/opentensor/bittensor)
-- Solana RPC endpoint access
+Before joining the network, ensure your infrastructure meets the minimum specs:
+
+- **Hardware:** 2-4 vCPU, 4-8GB RAM (Ubuntu 22.04).
+- **Bittensor:** [Bittensor SDK](https://github.com/opentensor/bittensor) & a funded wallet (~0.2 TAO for reg).
+- **APIs:** Solana RPC (Helius/QuickNode recommended).
+
+> 📄 **See Checklist:** [Pre-Flight Infrastructure Requirements](docs/requirements.md)
 
 ### Installation
 
