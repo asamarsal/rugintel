@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import { Chatbot } from "@/components/chatbot";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body className="font-sans antialiased dark bg-black text-white">
         {children}
         <Analytics />
+        <Chatbot />
       </body>
     </html>
   );
