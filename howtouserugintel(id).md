@@ -58,18 +58,19 @@ RugIntel adalah **pasar komoditas digital terdesentralisasi** di jaringan Bitten
 
 ---
 
-## Prasyarat
+## Prasyarat & Kebutuhan Infrastruktur
 
-Sebelum memulai, pastikan Anda memiliki:
+Sebelum memulai, pastikan Anda telah menyiapkan infrastruktur yang sesuai. Kami telah menyediakan spesifikasi lengkap untuk hardware, biaya VPS, dan kebutuhan API dalam dokumen terpisah:
 
-| Kebutuhan         | Detail                                                                                                                          |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **Python**        | Versi 3.9 atau lebih baru                                                                                                       |
-| **Bittensor SDK** | `pip install bittensor`                                                                                                         |
-| **Solana RPC**    | Endpoint untuk mengakses data on-chain Solana (gratis via [Helius](https://helius.dev) atau [QuickNode](https://quicknode.com)) |
-| **API Keys**      | RugCheck API, DexScreener API (opsional: Twitter API)                                                                           |
-| **Hardware**      | Minimal: VPS 2 CPU, 4GB RAM, 50GB SSD                                                                                           |
-| **TAO**           | Sejumlah TAO untuk mendaftarkan subnet dan melakukan staking                                                                    |
+> 📄 **Baca juga:** [Kebutuhan Infrastruktur & Financial (Requirements)](docs/requirements.md)
+
+| Kebutuhan         | Penjelasan Singkat                          |
+| :---------------- | :------------------------------------------ |
+| **Python**        | Versi 3.9 atau lebih baru                   |
+| **Bittensor SDK** | `pip install bittensor`                     |
+| **Solana RPC**    | Endpoint data blockchain (Helius/QuickNode) |
+| **Hardware**      | VPS 2-4 vCPU, 4-8GB RAM (Tergantung peran)  |
+| **TAO**           | Untuk registrasi dan staking                |
 
 ---
 

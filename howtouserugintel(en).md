@@ -58,18 +58,19 @@ RugIntel is a **decentralized digital commodity market** on the Bittensor networ
 
 ---
 
-## Prerequisites
+## Prerequisites & Infrastructure Requirements
 
-Before starting, make sure you have:
+Before starting, ensure you have set up the appropriate infrastructure. We have provided full specifications for hardware, VPS costs, and API requirements in a separate document:
 
-| Requirement       | Details                                                                                                                   |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **Python**        | Version 3.9 or later                                                                                                      |
-| **Bittensor SDK** | `pip install bittensor`                                                                                                   |
-| **Solana RPC**    | Endpoint for accessing Solana on-chain data (free via [Helius](https://helius.dev) or [QuickNode](https://quicknode.com)) |
-| **API Keys**      | RugCheck API, DexScreener API (optional: Twitter API)                                                                     |
-| **Hardware**      | Minimum: VPS 2 CPU, 4GB RAM, 50GB SSD                                                                                     |
-| **TAO**           | Some TAO for subnet registration and staking                                                                              |
+> 📄 **See also:** [Infrastructure & Financial Requirements](docs/requirements.md)
+
+| Requirement       | Brief Explanation                           |
+| :---------------- | :------------------------------------------ |
+| **Python**        | Version 3.9 or later                        |
+| **Bittensor SDK** | `pip install bittensor`                     |
+| **Solana RPC**    | Blockchain data endpoint (Helius/QuickNode) |
+| **Hardware**      | VPS 2-4 vCPU, 4-8GB RAM (Depends on role)   |
+| **TAO**           | For registration and staking                |
 
 ---
 
