@@ -107,6 +107,7 @@ export function Hero() {
   const subtitleRef = useRef(null);
   const terminalRef = useRef(null);
   const statsRef = useRef(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
   const [visibleLines, setVisibleLines] = useState(0);
   const [cursorVisible, setCursorVisible] = useState(true);
 
@@ -162,6 +163,13 @@ export function Hero() {
 
     return () => ctx.revert();
   }, []);
+
+  // Auto-scroll terminal body as lines appear
+  useEffect(() => {
+    if (bodyRef.current) {
+      bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
+    }
+  }, [visibleLines]);
 
   // Terminal typing effect
   useEffect(() => {
@@ -297,8 +305,11 @@ export function Hero() {
                 </span>
               </div>
 
-              {/* Terminal body */}
-              <div className="font-mono text-xs md:text-sm space-y-0.5 min-h-[280px]">
+              {/* Terminal body — fixed height, scrolls up */}
+              <div
+                ref={bodyRef}
+                className="font-mono text-xs md:text-sm space-y-0.5 h-[320px] overflow-y-hidden flex flex-col justify-end"
+              >
                 {TERMINAL_LINES.slice(0, visibleLines).map((line, i) => (
                   <div
                     key={i}
