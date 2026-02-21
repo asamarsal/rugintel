@@ -1,13 +1,43 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+
+const COLORS = ["#00ffff", "#a855f7", "#39ff14", "#ff2d95"];
+
+interface Particle {
+  width: number;
+  height: number;
+  left: number;
+  top: number;
+  color: string;
+  opacity: number;
+  duration: number;
+  delay: number;
+}
 
 export function AnimatedGradient() {
   const blob1 = useRef<HTMLDivElement>(null);
   const blob2 = useRef<HTMLDivElement>(null);
   const blob3 = useRef<HTMLDivElement>(null);
   const blob4 = useRef<HTMLDivElement>(null);
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  // Generate particles client-side only to avoid SSR hydration mismatch
+  useEffect(() => {
+    setParticles(
+      Array.from({ length: 25 }, (_, i) => ({
+        width: 2 + Math.random() * 3,
+        height: 2 + Math.random() * 3,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        color: COLORS[i % 4],
+        opacity: 0.15 + Math.random() * 0.2,
+        duration: 15 + Math.random() * 20,
+        delay: -Math.random() * 20,
+      })),
+    );
+  }, []);
 
   useEffect(() => {
     const blobs = [blob1.current, blob2.current, blob3.current, blob4.current];
@@ -89,20 +119,20 @@ export function AnimatedGradient() {
         }}
       />
 
-      {/* Floating particles */}
-      {Array.from({ length: 25 }).map((_, i) => (
+      {/* Floating particles — client only, no SSR */}
+      {particles.map((p, i) => (
         <div
           key={i}
           className="absolute rounded-full"
           style={{
-            width: `${2 + Math.random() * 3}px`,
-            height: `${2 + Math.random() * 3}px`,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            background: ["#00ffff", "#a855f7", "#39ff14", "#ff2d95"][i % 4],
-            opacity: 0.15 + Math.random() * 0.2,
-            animation: `floatParticle ${15 + Math.random() * 20}s ease-in-out infinite`,
-            animationDelay: `${-Math.random() * 20}s`,
+            width: `${p.width}px`,
+            height: `${p.height}px`,
+            left: `${p.left}%`,
+            top: `${p.top}%`,
+            background: p.color,
+            opacity: p.opacity,
+            animation: `floatParticle ${p.duration}s ease-in-out infinite`,
+            animationDelay: `${p.delay}s`,
           }}
         />
       ))}
