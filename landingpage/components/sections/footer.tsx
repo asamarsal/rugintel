@@ -110,7 +110,7 @@ export function Footer() {
         <div className="border-t border-cyan-500/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
-              © 2025 RugIntel. All rights reserved.
+              © 2026 RugIntel. All rights reserved.
             </p>
             <div className="flex gap-6 text-gray-500 text-sm">
               <a href="#" className="hover:text-cyan-400 transition">

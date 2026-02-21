@@ -257,9 +257,14 @@ export function Hero() {
           >
             Start Mining TAO →
           </button>
-          <button className="px-8 py-3.5 font-mono font-bold text-sm tracking-wide text-cyan-400 border border-cyan-500/50 hover:bg-cyan-500/10 hover:border-cyan-400 transition-all duration-300">
+          <a
+            href="https://github.com/asamarsal/rugintel/blob/main/README.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-3.5 font-mono font-bold text-sm tracking-wide text-cyan-400 border border-cyan-500/50 hover:bg-cyan-500/10 hover:border-cyan-400 transition-all duration-300"
+          >
             Read the Docs
-          </button>
+          </a>
         </div>
 
         {/* Stats Strip */}
