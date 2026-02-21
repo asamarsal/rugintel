@@ -11,7 +11,7 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Image
-                src="/rugintel-white.png"
+                src="/rugintel-icon.png"
                 alt="RugIntel Logo"
                 width={32}
                 height={32}

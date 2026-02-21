@@ -261,7 +261,7 @@ function FAQItem({
 }
 
 export function FAQ() {
-  const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   const handleToggle = (idx: number) => {
     setOpenIdx((prev) => (prev === idx ? null : idx));
