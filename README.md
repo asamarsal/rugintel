@@ -22,32 +22,32 @@
 
 ## Overview
 
-**RugIntel** is the first decentralized intelligence network that predicts Solana rugpulls through **12-layer signal fusion**, detecting threats **5–15 minutes before collapse** with a **<8% false positive rate**. It turns the **$500M/year rugpull protection market** into continuous TAO demand.
+**RugIntel** is a decentralized intelligence market on Bittensor where the digital commodity is **verified rugpull prediction intelligence**. Miners compete off-chain to produce risk assessments through a custom **12-layer signal fusion** architecture built on top of Bittensor's incentive mechanism. Validators independently verify predictions against **24-hour ground truth outcomes** and set on-chain weights proportional to accuracy. Yuma Consensus automatically distributes TAO rewards to the most accurate producers. RugIntel turns the **$500M/year rugpull protection market** into continuous TAO demand.
 
-While centralized tools react _after_ victims lose funds, RugIntel's 12-layer architecture — from liquidity flows to adversarial learning — infers malicious intent through **causal reasoning across domains**.
+This is not a security tool with Bittensor rewards tacked on — this is Bittensor's core paradigm applied to DeFi security: an **abstracted commodity market** producing real-world applicable value (rugpull protection). While centralized tools react _after_ victims lose funds, RugIntel's subnet-specific 12-layer design infers malicious intent through **causal reasoning across domains**, where the best intelligence producers win through economic alignment — not central authority.
 
-> **This isn't just detection — it's genuine Proof of Intelligence where intelligence is rewarded, adversaries are priced out, and users are protected.**
+> **This isn't just detection — it's a self-improving intelligence market where accuracy is the currency and truth is the equilibrium. Free for retail users. Sustainable for the network. Essential for the ecosystem.**
 
 ### Key Highlights
 
-| Feature                       | Description                                                          |
-| ----------------------------- | -------------------------------------------------------------------- |
-| 🧠 **12-Layer Signal Fusion** | Multi-domain intelligence layers for comprehensive rugpull detection |
-| ⚡ **Early Detection**        | 5–15 minutes warning before rugpull collapse                         |
-| 🎯 **High Accuracy**          | <8% false positive rate                                              |
-| 💰 **TAO Rewards**            | Miners earn TAO for accurate predictions                             |
-| 🆓 **Free for Retail**        | Zero cost for individual users                                       |
-| 🔄 **Self-Improving**         | Adversarial learning loop continuously evolves the network           |
+| Feature                       | Description                                                                  |
+| ----------------------------- | ---------------------------------------------------------------------------- |
+| 🧠 **12-Layer Signal Fusion** | Custom subnet intelligence layers for comprehensive rugpull detection        |
+| ⚡ **Early Detection**        | Targeting early warning through multi-signal fusion                          |
+| 🎯 **Validated Accuracy**     | Metrics validated via testnet deployment against historical rugpull datasets |
+| 💰 **TAO Rewards**            | Miners earn TAO via Yuma Consensus for accurate predictions                  |
+| 🆓 **Free for Retail**        | Zero cost for individual users                                               |
+| 🔄 **Self-Improving**         | Adversarial learning loop (Layer 12) continuously evolves the network        |
 
 ---
 
 ## Core Mechanism: Rugpull Proof-of-Intelligence
 
-The subnet operates through a **predictive competitive loop** between two primary actors:
+RugIntel implements **domain-specific intelligence** on Bittensor's generic incentive layer. The subnet defines a commodity market where **intelligence has monetary value** — miners produce it, validators verify it, and Yuma Consensus rewards the best producers. The market operates through a **predictive competitive loop** between two primary actors:
 
-### 🔬 Miners (The Intelligence Layer)
+### 🔬 Miners: Intelligence Orchestrators (Off-Chain)
 
-Miners execute specialized analysis models across **12 non-overlapping intelligence layers**:
+Miners run off-chain Python processes that execute specialized analysis models across **12 non-overlapping intelligence layers**. Each miner exposes an Axon endpoint that validators query with `RugIntelSynapse` requests containing token addresses.
 
 | Layer | Name                           | Function                                               |
 | :---: | ------------------------------ | ------------------------------------------------------ |
@@ -73,13 +73,21 @@ Miners execute specialized analysis models across **12 non-overlapping intellige
 - Supporting evidence dictionaries
 - Estimated time-to-rugpull
 
-### ✅ Validators (The Verification Layer)
+### ✅ Validators: Verification & Weight Setting (Off-Chain)
 
-Validators maintain **ground-truth verification sets** composed of historical rugpull patterns.
+Validators independently verify miner outputs using **cross-source validation** (Solana RPC + RugCheck API + DexScreener) and score predictions against **24-hour ground truth outcomes** — checking whether tokens flagged as high-risk actually rugpulled within 24 hours of launch:
 
-- Score miner outputs against actual outcomes through **7-layer consensus**
-- Operate on **short-term** (immediate reward allocation) and **long-term** (rolling reputation) scoring windows
-- Validators whose scoring deviates from ground truth have rewards reduced, ensuring alignment with prediction accuracy
+1. **Query miners** — Validators send `RugIntelSynapse` requests to 3+ miners per token
+2. **24h ground truth verification** — After 24 hours, validators check actual on-chain outcomes: did the token rugpull? Was liquidity drained? Were funds moved to exchanges?
+3. **Score miner accuracy** — Compare miner predictions against verified ground truth; accuracy score determines weight
+4. **Set on-chain weights** — Validators call `set_weights()` on the Bittensor subtensor chain, proportional to miner accuracy
+5. **Yuma Consensus** — The subtensor blockchain aggregates weights from all validators and **automatically distributes TAO emission** to miners
+
+> ⚠️ **Important:** Validators do **not** directly distribute TAO. They set weights → Yuma Consensus calculates emission → the subtensor blockchain auto-distributes TAO. No human intervention; mathematically enforced.
+
+- Scoring operates on **short-term** (immediate reward allocation) and **long-term** (rolling reputation) windows
+- Validators whose scoring consistently deviates from ground truth have their weights reduced by Yuma Consensus
+- Economic alignment: **accuracy = revenue** — no manual reward distribution
 
 ---
 
@@ -119,32 +127,48 @@ Layer 12 creates a **meta-cognition loop** where the network learns from every m
 
 ---
 
-## Technical Architecture
+## Technical Architecture: Bittensor Integration
+
+RugIntel implements a custom intelligence layer **on top of** Bittensor's incentive mechanism:
 
 ```
-┌─────────────────────────────────────────────────┐
-│                  RugIntel Subnet                │
-│                                                 │
-│  ┌──────────────┐         ┌──────────────────┐  │
-│  │    Miners    │         │    Validators    │  │
-│  │              │         │                  │  │
-│  │  Layer 1-12  │───────▶ │  7-Layer         │  │
-│  │  Signal      │         │  Consensus       │  │
-│  │  Fusion      │         │  Verification    │  │
-│  └──────────────┘         └────────┬─────────┘  │
-│         ▲                          │            │
-│         │                          ▼            │
-│  ┌──────┴───────┐         ┌──────────────────┐  │
-│  │  Solana RPC  │         │  TAO Rewards     │  │
-│  │  Data Feed   │         │  Distribution    │  │
-│  └──────────────┘         └──────────────────┘  │
-│                                                 │
-│         ┌──────────────────────┐                │
-│         │  Layer 12: Adversarial Learning       │
-│         │  (Self-improving feedback loop)       │
-│         └──────────────────────┘                │
-└─────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│                  Bittensor Subtensor (On-Chain)                 │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │   Yuma Consensus → Automatic TAO Emission Distribution   │  │
+│  └──────────────────────┬────────────────────────────────────┘  │
+│                         ▲                                       │
+│                         │ set_weights()                         │
+│  ┌──────────────────────┴────────────────────────────────────┐  │
+│  │                 RugIntel Subnet (Off-Chain)                │  │
+│  │                                                           │  │
+│  │  ┌─────────────────────┐     ┌─────────────────────────┐  │  │
+│  │  │  Validators         │     │  Miners                 │  │  │
+│  │  │                     │     │                         │  │  │
+│  │  │  • Query Solana RPC │     │  • Receive synapse      │  │  │
+│  │  │  • Query RugCheck   │◄────│    requests             │  │  │
+│  │  │  • Cross-verify     │     │  • Execute 12-layer     │  │  │
+│  │  │    miner outputs    │     │    intelligence fusion  │  │  │
+│  │  │  • Set on-chain     │     │  • Return risk scores   │  │  │
+│  │  │    weights          │     │    & evidence           │  │  │
+│  │  └─────────────────────┘     └─────────────────────────┘  │  │
+│  │                                       ▲                   │  │
+│  │                              ┌────────┴────────┐          │  │
+│  │                              │  External APIs  │          │  │
+│  │                              │  Solana RPC     │          │  │
+│  │                              │  RugCheck       │          │  │
+│  │                              │  DexScreener    │          │  │
+│  │                              └─────────────────┘          │  │
+│  └───────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
 ```
+
+**Key Architectural Details:**
+
+1. **Separation of concerns** — Bittensor provides the incentive layer; RugIntel provides domain-specific intelligence logic
+2. **Off-chain computation** — All miner/validator logic runs off-chain, leveraging Bittensor's core innovation of separating chain functioning from validation systems
+3. **Yuma Consensus** — Agnostic to what's being measured, enables fuzzy consensus around probabilistic truths (like rugpull prediction)
+4. **External data freedom** — Miners/validators freely query external APIs (Solana RPC, RugCheck, etc.) — Bittensor imposes no restrictions on data sources
 
 ---
 
