@@ -269,7 +269,7 @@ Before joining the network, ensure your infrastructure meets the minimum specs:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/rugintel.git
+git clone https://github.com/asamarsal/rugintel.git
 cd rugintel
 
 # Install dependencies
