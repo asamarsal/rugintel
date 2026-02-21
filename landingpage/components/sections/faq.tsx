@@ -315,7 +315,7 @@ export function FAQ() {
             Still have questions?
           </p>
           <a
-            href="https://github.com/rugintel/rugintel/discussions"
+            href="https://github.com/asamarsal/rugintel"
             target="_blank"
             rel="noopener noreferrer"
             className="text-cyan-400 font-mono hover:text-cyan-300 transition text-sm"
