@@ -75,7 +75,7 @@ export function Miners() {
                     <h4 className="text-xl font-bold text-white mb-2">Download Subnet Software</h4>
                     <p className="text-gray-400 text-sm mb-4">Clone the repository and install requirements.</p>
                     <div className="bg-black border border-gray-800 rounded p-3 font-mono text-xs sm:text-sm text-green-400 overflow-x-auto whitespace-pre-wrap sm:whitespace-nowrap break-words">
-                      <div className="mb-2"><span className="text-gray-500 select-none">$</span> git clone https://github.com/your-repo/rugintel-subnet.git</div>
+                      <div className="mb-2"><span className="text-gray-500 select-none">$</span> git clone https://github.com/asamarsal/rugintel.git</div>
                       <div><span className="text-gray-500 select-none">$</span> pip install -r requirements.txt</div>
                     </div>
                   </div>
