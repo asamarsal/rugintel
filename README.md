@@ -244,7 +244,7 @@ RugIntel operates on a multi-tier sustainable economy. We convert DeFi security 
 
 Detailed guides and specifications for RugIntel participants:
 
-- **[Main Tutorial (ID)](<howtouserugintel(id).md>)** — Step-by-step guide to building and running nodes.
+- **[Main Tutorial (EN)](<howtouserugintel(en).md>)** — Step-by-step guide to building and running nodes.
 - **[System Requirements](docs/requirements.md)** — Hardware, API keys, and TAO budget specs for Miners/Validators.
 - **[Intelligence Layers](layer/)** — Comprehensive logic for each of the 12 intelligence layers.
 - **[Business Model](docs/bussiness-model/bussinessmodels.md)** — Economic strategy and revenue streams.
